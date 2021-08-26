@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Welcome !</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container text-center">
+		<h1>Project Technical Test - User Management</h1>
+		<h3><a th:href="@{/login}">Login to your user profile</a></h3>
+		<h3><a th:href="@{/register}">Not registered yet? Register as a new user NOW!</a></h3>
+		<h3><a th:href="@{/users}">View All Users (must be logged in, redirect if not)</a></h3>
+
+	</div>
+	
+</body>
+</html>
