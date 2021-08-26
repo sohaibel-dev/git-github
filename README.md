@@ -17,7 +17,7 @@ After the login is done, the user could display all the users present in the dat
 
 # Starting up the application:
 
-The application: it could be launched in an IDE like eclipse or via its Jar (generated and committed).
+The application: it could be launched in an IDE like eclipse or via its Jar (command : mvn clean package).
 Database: Option 1: on server, MySQL, Option 2: embedded H2 --> configuration to be changed on "application.properties" depending on choice.
 The FrontEnd: http://localhost:8080/
 
