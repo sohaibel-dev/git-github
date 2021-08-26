@@ -4,6 +4,8 @@ package com.testtechniqueatos.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.validation.Valid;
 
@@ -56,6 +58,10 @@ public class AppController {
 			model.addAttribute("username_error", "true");
 		}
 		
+		if (!validate(inputEmail)) {
+			model.addAttribute("username_wrong", "true");
+		}
+		
 		LocalDate currentDate = new LocalDate();
 		LocalDate birthDate = new LocalDate(user.getBirthdate());
 		int calculatedAge = calculateAgeWithJodaTime(birthDate, currentDate);
@@ -65,7 +71,7 @@ public class AppController {
 			model.addAttribute("birthdate_error", "true");
 		}
 		
-		if (bindingResult.hasErrors() || (calculatedAge<18) || userExist!=null ) {
+		if (bindingResult.hasErrors() || (calculatedAge<18) || userExist!=null || !validate(inputEmail)) {
 			return "signup_form";
 		}
 
@@ -148,4 +154,12 @@ public class AppController {
 			    Years age = Years.yearsBetween(birthDate, currentDate);
 			    return age.getYears();   
 			}
+	
+	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+		public static boolean validate(String emailStr) {
+		        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+		        return matcher.find();
+		}
 }
