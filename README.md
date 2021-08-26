@@ -26,7 +26,7 @@ path for login: http://localhost:8080/login
 path to display all users: /users
 path to search by email: users/email/{email} 
 path to search by id: users/id/{id}
-path to search by date of birth: users/birthdate/{birthdate
+path to search by date of birth: users/birthdate/{birthdate}
 
 # FrontEnd Templates :
 
